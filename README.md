@@ -10,7 +10,7 @@ There will be three disabled control buttons [Save] [Change] [Reset] at the bott
 
 On page load or any control button click, an empty form will be displayed and the cursor will remain . All other fields and buttons should be disabled at this time.
 
-User will enter data in 'stident name' and
+User will enter data in 'student name' and
 
 If name does NOT exist in the database, enable [Save] and [Reset] buttons and move the cursor to the next field and allow you to enter data in the form.
 
