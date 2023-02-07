@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html lang="en">
+    <head>
+        <title>Student Enrollment Form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=20">
+      
+        
+         <script type="text/javascript">
+
+            function validate() {
+
+                if (document.myForm.First_Name.value == "") {
+
+                    alert("Please provide First Name !");
+                    document.myForm.First_Name.focus();
+                    return false;
+                }
+
+                if (document.myForm.Last_Name.value == "") {
+
+                    alert("Please provide Last Name !");
+                    document.myForm.Last_Name.focus();
+                    return false;
+                }
+
+                if (document.myForm.Roll_no.value == "") {
+
+                    alert("Please provide Roll number !!");
+                    document.myForm.Roll_no.focus();
+                    return false;
+                }
+
+                if (document.myForm.Email.value == "") {
+
+                    alert("Please provide valid Email !!");
+                    document.myForm.Email.focus();
+                    return false;
+                }
+
+                if (document.myForm.Password.value == "") {
+
+                    alert("Please Enter Password !!");
+                    document.myForm.Password.focus();
+                    return false;
+                }
+
+                if (document.myForm.Birth-Date.value == "") {
+
+                    alert("Please provide Birth date");
+                    document.myForm.Birth-Date.focus();
+                    return false;
+                }
+
+                if (document.myForm.Enrollment-Date.value == "") {
+
+                    alert("Please Enrollment date !!");
+                    document.myForm.Enrollment-Date.focus();
+                    return false;
+                }
+
+                return(true);
+
+            }
+
+
+        </script>
+
+
+
+    </head>
+
+    <body>
+
+
+
+        <form action = "#" name = "myForm" onSubmit = "return (validate())";>
+
+            <h3 align = "center"> STUDENT ENROLLMENT FORM </h3>
+
+            <table align = "center" cellpadding="9">
+
+                <tr>
+                    <td> First Name : </td>
+                    <td>
+                        <input type = "text" name = "First_Name" placeholder="First Name" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Last Name : </td>
+                    <td>
+                        <input type = "text" name ="Last_Name" placeholder="Last Name" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td> Gender : </td>
+                    <td> Male
+                        <input type="radio" name="Gender" value="male" /> 
+                        Female
+
+                        <input type="radio" name="Gender" value="female" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td> Roll No. </td>
+                    <td>
+                        <input type="text" name="Roll_no" placeholder="Roll number" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Email : </td>
+                    <td> <input type="text" name="Email" placeholder="Email Id" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td> Password : </td>
+                    <td><input type="Password" name="Password" placeholder="Password" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td> Address : </td>
+
+                    <td>
+                        <textarea name = "Address" rows="5" cols="20" placeholder="Address" />
+
+                        </textarea>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td> Birth date :</td>
+
+                    <td>
+                        <input type="text" name="Birth-Date" placeholder="Birth-date" />
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td> Enrollment-Date : </td>
+                    <td>
+                        <input type="text" name="Enrollment-Date" placeholder="Enrollment-Date" />
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td> Country : </td>
+                    <td>
+                        <input type="text" name="Country" placeholder="country name"  />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td> Select Course :</td> <br>
+                <td>
+                    Computer<input type="radio" name="Course" value="Computer" />
+
+                    Mechanical<input type="radio" name="Course" value="Mechanical" />
+
+                    Civil<input type="radio" name="Course" value="Civil" />
+                </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> </td>
+                    <td>
+                        <input type="Submit"  Value = "Submit"  />
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </form>
+        <script
+         function savestudent() {
+                var jsonStr = validateAndGetFormData();
+                if (jsonStr === "") {
+                    return;
+                }
+                var putReqStr = createPUTRequest("90932659|-31949276489735080|90948817",
+                        jsonStr, "SAMPLE", "EMP-REL");
+                alert(putReqStr);
+                jQuery.ajaxSetup({async: false});
+                var resultObj = executeCommandAtGivenBaseUrl(putReqStr,
+                        "http://api.login2explore.com:5577", "/api/iml");
+                alert(JSON.stringify(resultObj));
+                jQuery.ajaxSetup({async: true});
+                resetForm();
+            }
+        </script>
+    </body>
+
+</html>
